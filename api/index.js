@@ -4,13 +4,15 @@ const path = require('path');
 const cors = require('cors');
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const { ApolloServer, gql } = require('apollo-server-express');
 const fallback = require('@blocklet/sdk/lib/middlewares/fallback');
+const fs = require('fs');
 
+const resolvers = require('./src/resolver');
 const { name, version } = require('../package.json');
 const logger = require('./libs/logger');
 
 const app = express();
-
 app.set('trust proxy', true);
 app.use(cookieParser());
 app.use(express.json({ limit: '1 mb' }));
@@ -18,8 +20,23 @@ app.use(express.urlencoded({ extended: true, limit: '1 mb' }));
 app.use(cors());
 
 const router = express.Router();
+
 router.use('/api', require('./routes'));
+
 app.use(router);
+
+async function startApolloServer() {
+  const schema = fs.readFileSync(path.resolve(__dirname, './schema.graphql'), 'utf8');
+  const typeDefs = gql`
+    ${schema}
+  `;
+  const server = new ApolloServer({ typeDefs, resolvers });
+  await server.start();
+
+  server.applyMiddleware({ app });
+}
+
+startApolloServer();
 
 const isProduction = process.env.NODE_ENV === 'production' || process.env.ABT_NODE_SERVICE_ENV === 'production';
 
