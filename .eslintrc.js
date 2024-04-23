@@ -4,4 +4,8 @@ module.exports = {
   globals: {
     logger: true,
   },
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': 'error',
+  },
 };

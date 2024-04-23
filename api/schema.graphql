@@ -1,0 +1,21 @@
+type User {
+  did: String!
+  userName: String
+  mail: String
+  phone: String
+}
+
+input UserInput {
+  did: String!
+  userName: String
+  mail: String
+  phone: String
+}
+
+type Query {
+  findUser(did: String): User
+}
+
+type Mutation {
+  saveUser(user: UserInput): Boolean
+}

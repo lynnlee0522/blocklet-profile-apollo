@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "title": "lilin's test",
+    "userName": "userName",
+    "phone": "phone",
+    "mail": "mail",
+    "edit": "edit",
+    "cancel": "cancel",
+    "save": "save",
+    "userNameValid": "the username must be less than 15 characters",
+    "phoneValid": "Please enter a valid phone number",
+    "mailValid": "Please enter a valid email address.",
+    "successTip": "success"
+  }
+}

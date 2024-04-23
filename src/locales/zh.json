@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "title": "李琳的笔试题",
+    "userName": "用户名",
+    "phone": "手机号",
+    "mail": "邮箱",
+    "edit": "编辑",
+    "cancel": "取消",
+    "save": "保存",
+    "userNameValid": "用户名需小于15个字符",
+    "phoneValid": "请输入有效的手机号",
+    "mailValid": "请输入有效的邮箱地址",
+    "successTip": "更新成功"
+  }
+}

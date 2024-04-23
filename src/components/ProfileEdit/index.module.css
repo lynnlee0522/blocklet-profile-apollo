@@ -1,0 +1,8 @@
+.phone > div {
+  overflow: visible !important;
+}
+
+.cancelBtn {
+  margin-left: 10px !important;
+  background-color: #fff;
+}
