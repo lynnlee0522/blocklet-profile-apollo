@@ -1,3 +1,3 @@
-# template-react
+# My Blocklet
 
-A react template for creating a new blocklet project.
+Welcome to my blocklet
