@@ -1,6 +1,10 @@
 name: Deploy
 
+permissions: 
+  contents: write
+
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -34,3 +38,4 @@ jobs:
           server-access-secret: ${{ secrets.SERVER_ACCESS_SECRET }}
           slack-webhook: ${{ secrets.SLACK_WEBHOOK }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
