@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Select, MenuItem } from '@mui/material';
 
 export default function LocaleSelector() {
-  const [selectedValue, setSelectedValue] = useState('zh');
+  const [selectedValue, setSelectedValue] = useState('en');
   const { i18n } = useTranslation();
 
   const handleChange = (event) => {
