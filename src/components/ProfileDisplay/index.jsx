@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorFallback } from '@arcblock/ux/lib/ErrorBoundary';
 import InfoRow from '@arcblock/ux/lib/InfoRow';
 import Button from '@arcblock/ux/lib/Button';
 
@@ -7,7 +9,7 @@ export default function ProfileDisplay({ userInfo, setMode }) {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
       <InfoRow nameWidth={80} name={t('userName')}>
         {userInfo.userName ?? ''}
       </InfoRow>
@@ -27,7 +29,7 @@ export default function ProfileDisplay({ userInfo, setMode }) {
         }}>
         {t('edit')}
       </Button>
-    </div>
+    </ErrorBoundary>
   );
 }
 

@@ -10,8 +10,8 @@ import TextField from '@mui/material/TextField';
 import { PhoneInput } from 'react-international-phone';
 import { PhoneNumberUtil } from 'google-libphonenumber';
 import useSnackbar from '../../hooks/use-snackbar';
-
-// import '../../../node_modules/react-international-phone/style.css';
+// eslint-disable-next-line
+import 'react-international-phone/style.css';
 import styles from './index.module.css';
 
 const phoneUtil = PhoneNumberUtil.getInstance();

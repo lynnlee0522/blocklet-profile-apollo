@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorFallback } from '@arcblock/ux/lib/ErrorBoundary';
 import ProfileDisplay from '../ProfileDisplay';
 import ProfileEdit from '../ProfileEdit';
 
@@ -32,12 +34,14 @@ export default function Profile() {
   if (error) return <p>Error :</p>;
 
   return (
-    <div className={styles.container}>
-      {mode === 'show' ? (
-        <ProfileDisplay userInfo={userInfo} setMode={setMode} />
-      ) : (
-        <ProfileEdit userInfo={userInfo} setMode={setMode} refetch={refetch} />
-      )}
-    </div>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <div className={styles.container}>
+        {mode === 'show' ? (
+          <ProfileDisplay userInfo={userInfo} setMode={setMode} />
+        ) : (
+          <ProfileEdit userInfo={userInfo} setMode={setMode} refetch={refetch} />
+        )}
+      </div>
+    </ErrorBoundary>
   );
 }
